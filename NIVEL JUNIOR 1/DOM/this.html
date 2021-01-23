@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>this</title>
+  <style>
+    .caja {
+      width: 200px;
+      height: 200px;
+      cursor: pointer;
+      background: #226fc1;
+      margin: 10px;
+      display: inline-block;
+      text-align: center;
+      font-size: 30px;
+      color: #fff;
+      font-family: arial;
+    }
+    .negro{background: #000}
+  </style>
+</head>
+
+<body>
+  <div class="caja">1</div>
+  <div class="caja">2</div>
+  <div class="caja">3</div>
+  <div class="caja">4</div>
+</body>
+
+<script type="text/javascript">
+var cajas = document.getElementsByClassName('caja');
+function color(){
+   this.classList.toggle('negro')
+   // El tgis es como decir que este elemento al que se le añadira la funcion esta
+   // This es cuando tu no sepas que interaccion tenga el usuario con los elementos javascript si lo sabe y lo pone en el lugar de this
+ }
+for (var i = 0; i < cajas.length; i++) {
+  cajas[i].addEventListener('click',color)
+  // Aqui la letra i sera igual a las cjas que haya e iran aumentando poco a poco, hatsa que sea menor a el numero de cajas que existen
+}
+</script>
+
+</html>

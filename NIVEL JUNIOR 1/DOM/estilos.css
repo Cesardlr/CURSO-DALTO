@@ -1,0 +1,19 @@
+body{
+  background: #f2f2f2;
+  font-family: arial;
+}
+
+.contenedor{
+  width: 400px;
+  padding: 20px;
+}
+
+.caja{
+  padding:20px 10px;
+  text-align: center;
+  margin: 10px 0;
+  background: #226fc1;
+  font-size: 24px;
+  color:#fff;
+}
+.naranja {background: #f9a03f;}

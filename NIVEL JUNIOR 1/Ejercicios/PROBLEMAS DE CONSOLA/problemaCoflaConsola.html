@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Cofla consola</title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    const materias = {
+      fisica: [90,6,4,"fisica"],
+      matematicas: [90,6,3,"matematicas"],
+      programacion: [85,9,4,"programacion"],
+      biologia: [68,8,4,"biologia"],
+      logica: [87,7,2,"logica"],
+      algebra: [75,8,4,"algebra"]
+    }
+    // Esto es un objeto que se hace como un array asociativo
+
+    const aprobo = ()=>{
+      for ( materia in materias) {
+
+        let asistencias = materias[materia][0];
+        let promedio = materias[materia][1]
+        let trabajos = materias[materia][2]
+
+        console.log(materias[materia][3])
+        if (asistencias >= 90) {
+          console.log("%casistencias en orden", "color:green")
+        } else if (asistencias < 90){
+          console.log("%cFalta de asistencias", "color:red")
+        }
+      if (promedio >= 7) {
+          console.log("%cpromedio en orden", "color:green")
+      }else {
+        console.log("%cpromedio reprobado", "color:red")
+      }
+      if (trabajos >= 3) {
+          console.log("%ctrabajos en orden", "color:green")
+      }else {
+        console.log("%cfalta de trabajos", "color:red")
+      }
+
+      }
+    }
+    aprobo()
+  </script>
+</body>
+
+</html>

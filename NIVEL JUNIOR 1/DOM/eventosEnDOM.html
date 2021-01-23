@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Eventos</title>
+  <style>
+  .caja{
+    width:200px;
+    height:200px;
+    cursor:pointer;
+    background: #226fc1;
+    margin:10px;
+    display: inline-block;
+    text-align: center;
+    font-size: 30px;
+    color:white;}
+</style>
+</head>
+<body>
+  <!-- <button onclick="saludo()">Saludo</button> -->
+  <!-- Aqui lo que pasare es que cuando se le pique al btoon se ejecutara la funcion saludo en js -->
+<!-- Este es el modelo de eventos basico ya casi no se usa se usa mas el estandar, este solo es pa pruebas rapidas -->
+
+<!-- <button id="btn-saludar">Saludo</button> -->
+<button id="btn-caja">crear caja</button>
+<section id="contenedor"></section>
+
+<button id="btn-dlt">borrar</button>
+
+
+  <script type="text/javascript">
+
+function crearCaja() {
+  var contenedor = document.getElementById("contenedor")
+  var caja = document.createElement('div')
+  caja.className = 'caja'
+  contenedor.appendChild(caja)
+}
+
+var btnCaja = document.getElementById('btn-caja')
+btnCaja.addEventListener('mouseout',crearCaja)
+
+function eliminarCaja() {
+  contenedor.removeChild()
+}
+
+var btnDlt = document.getElementById('btn-dlt')
+btnDlt.addEventListener('click',eliminarCaja)
+
+
+  // function saludo() {
+  //   alert('hola')
+  // }
+  // function saludo2() {
+  //   alert('hola2')
+  // }
+
+
+  // var btnSaludar = document.getElementById('btn-saludar');
+  // btnSaludar.addEventListener('mouseup', saludo)
+  // btnSaludar.addEventListener('mouseup', saludo2)
+  // // 1.se accede al boton y se obtiene el id y se pone en una variable
+  // // 2.Se añade el listener a la variable, en el primer parametro se pone la accion q detonara la funciones
+  // // En el segundo parametro el nombre de la funcion que se ejecutara, y se pueden añadir 2 funciones al mismo boton, poniendo otro listener
+
+  // btnSaludar.removeEventListener('click',saludo2)
+  // Aqui este sirve para poder eliminar el segundo elemento, y es como si el saludo 2 este eliminado
+
+
+   // LISTA DE EVENTOS DISPONIBLES:
+
+   // EVENTOS CON EL MOUSE
+   // click: cuando se hace click en un evento
+   // mouseover: cuando se pone un mouse encima de el elemento
+   // mouseout: cuando el cursor deja de estar en un elemento
+   // mousedown:cuando el mouse se presiona en el elemento
+   // mouseup: es como cuando se suelte el mouse se aleje y deje de hacer click en un elemento
+   // mousemove: cuando el mouse se este moviendo lo detectara para poder ejecutar la funcion
+
+
+   // EVENTOS CON EL TECLADO:
+   // Keydown y Keyup: cuando el usuarion presiona y luego suelta una tecla
+   // Keypress: cualquier tecla menos shift, fn o capslock es presionada en una posicion
+
+
+
+   // EVENTOS EN LOS FORMULARIOS:
+   // focus:esto detecta cuando un usuario se encofa en un elemento
+   // submit:detecta cuando el usuario envia el formulario
+   // blur:detecta cuando el enfoque esta lejos de un elemento
+   // change: detecta cuando el usuario modifica el valor de un elemento
+
+
+
+   // EVENTOS EN VENTANAS O DOCUMENTS:
+   // load: esto detecta cuando el navegador termina de cargar la pagina
+   // unload: detecta cuando el usaurio abandona la pagina
+   // resize: detecta cuando el usuario cambia de tamaño la pagina
+
+
+
+   // EVENTOS PARA CUANDO SE SUELTAN O SE ARRASTRAN ELEMENTOS:
+   // drag: cuando un elemento o una seleccion de texto pasa
+   // dragend: cuando se deja de arrastrar un elementos
+   // dragenter: cuando un elemento arrastrado entra a un deposito valido para dejarlos
+   // dragstart: cuando el usuairon empieza a arrastar el elementi
+   // dragsleave: cuando un elemento arrastrado deja un drop target valido
+   // dragover: cuando un elemento o una seleccion de texto se arrastra a un valid drop target
+   // drop: cuando un elemento se deja en un valid drop target
+
+   // Una lista con mas elementos estas en: https://developer.mozilla.org/en-US/docs/Web/Events
+
+
+
+  </script>
+</body>
+</html>
