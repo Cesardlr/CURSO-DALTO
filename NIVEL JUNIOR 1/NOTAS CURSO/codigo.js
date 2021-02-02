@@ -992,7 +992,6 @@
 // 36)OBTENCION Y MODIFICACION DE ELEMENTOS:
 
 // -textContent---devuelve el texto de cualquier nodo
-
 // -innerHTML---devuelve el contenido html de un elemento
 // -outerHTML---Devuelve el codigo HTML completo de un elemento
 
