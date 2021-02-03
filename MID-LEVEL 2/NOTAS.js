@@ -283,3 +283,143 @@
 
 
 
+
+
+
+
+
+
+// ---------------------- 49) EVENTOS -----------------------------------
+
+// Estos son cualquier cambio que esta en la pagina, cualquier cosa que pasa en la pagina
+
+
+
+
+// ¿COMO QUITAR UN EVCENTLISTENER?
+// const button = document.querySelector(".button")
+// button.addEventListener('click',saludar)
+// function saludar(){
+//         alert('hola')
+//         button.removeEventListener('click',saludar)
+// }
+
+// Aqui se uso removeEventlistener para pdoer quitarselo
+// ESTO SOLO FUNCIONA CUANDO LA FUNCION ESTA POR FUERA Y ESTA ASOCIADA, SI NO NO SE PUEDE
+
+
+
+// ¿COMO PODEMOS VER A QUE SE LE DIO CLICK?
+
+// const button = document.querySelector(".button")
+// button.addEventListener('click',(e) =>{
+// console.log(e.target)
+// })
+
+// El parametro 'e' lo que hara es que va a ser como el evento, y seria buscado con la propiedad target,q ue es donde se dio click, en quue elemento del html, aqui esto devuelve esto
+
+{/* <button class="button">aprietame rata</button> */}
+
+
+
+
+
+// FLUJO DE EVENTOS
+// const button = document.querySelector('.button')
+// const contenedor = document.querySelector('.contenedor')
+
+// button.addEventListener('click',() => {
+//         alert('diste click en un boton')
+// })
+
+// contenedor.addEventListener('click',() => {
+//         alert('diste click en un contenedor')
+// })
+
+
+// AQUI EL FLUJO DE EVENTOS IRIA NORMAL, IRIA DEL MAS ESPECIFICO AL MENOS ESPECIFICO
+
+// +ESPECIFICOS = HIJOS
+// -ESPECIFICOS = CONTENEDORES
+
+
+
+// DIFERENCIA ENTRE 'EVENT BUBBLING' Y 'EVENT CAPTURING'
+// EL BUBBLING ESTA POR DEFECTO Y EL OTRO NO ESTA POR DEFECTO
+
+// bubbling va desde el mas especifico al menos especifico
+
+// ¿COMO SE CAMBIA ESTO?
+
+//------------------BUBBLING = FALSE--------------
+// button.addEventListener('click',() => {
+//         alert('diste click en un boton')
+// },false)
+
+// contenedor.addEventListener('click',() => {
+//         alert('diste click en un contenedor')
+// },false)
+
+
+//                   CAPTURING = TRUE
+
+// button.addEventListener('click',() => {
+//         alert('diste click en un boton')
+// },true)
+
+// contenedor.addEventListener('click',() => {
+//         alert('diste click en un contenedor')
+// },true)
+
+
+
+
+
+//------------------------- STOP PROPAGATION ---------------------------
+// Esto sirve para evitar que es tipo de eventos se propagen a los demas, detiene la ejecucion de los siguientes pues
+
+// const button = document.querySelector('.button')
+// const contenedor = document.querySelector('.contenedor')
+
+// button.addEventListener('click',(e) => {
+//         alert('diste click en un boton')
+//         e.stopPropagation()
+// })
+
+// contenedor.addEventListener('click',() => {
+//         alert('diste click en un contenedor')
+// })
+
+
+// Aqui estan con el flujo normal osea el bubbling, despues lo que pasa es que al dar click en el boton no se ejecutara tambein el de el contenedor, ya que paramos la propagacion
+
+// SOLO SE EJECUTA EL DEL BOTON
+
+
+
+
+//---------------- TIPOS DE EVENTOS ---------------
+
+
+// EVENTOS DEL MOUSE )
+
+// -click - ocurre con un click
+// -dbclick - ocurre con doble click
+// -mouseover - cuando el mouse se mueve sobre un elemento
+// -mouseout - cuando el mouse sale de un elemento
+
+// ----------- otros ---------
+// -contextmenu - con un clik en el boton derecho en un elemento para abrir un menu contextual
+
+// -mousenter - cuando el mouse se mueve dentro de un elemento
+
+// -mouseleave - cuando el punterp se mueve fuera de un elemento
+
+// -mouseup - pasa cuando un usuaroio suelta un boton del mouse sobre un elemento
+
+// -mousemove - cuando el puntero se mueve mientras esta sobre un elemento
+
+
+
+
+

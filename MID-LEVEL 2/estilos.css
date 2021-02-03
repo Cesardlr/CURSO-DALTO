@@ -4,14 +4,7 @@ body{
 }
 
 div{
-    background: #000;
+    background: red;
     padding:20px;
-}
-
-h2{
-    color: #fff;
-}
-
-p{
-    color: #ccc;
+    display: inline-block;
 }
