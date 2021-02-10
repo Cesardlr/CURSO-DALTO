@@ -409,17 +409,175 @@
 // -mouseout - cuando el mouse sale de un elemento
 
 // ----------- otros ---------
-// -contextmenu - con un clik en el boton derecho en un elemento para abrir un menu contextual
+// -contextmenu - con un clik derecho en un elemento para abrir un menu contextual
 
 // -mousenter - cuando el mouse se mueve dentro de un elemento
 
 // -mouseleave - cuando el punterp se mueve fuera de un elemento
 
-// -mouseup - pasa cuando un usuaroio suelta un boton del mouse sobre un elemento
+// -mouseup - pasa cuando un usuaroio suelta un boton del mouse sobre un elemento aunque se haya hecho el presionar fuera del elemento si se suelta el click, dentro de este se activa
 
 // -mousemove - cuando el puntero se mueve mientras esta sobre un elemento
 
 
 
+
+// EVENTOS DEL TECLADO)
+
+// -keypress - ocurre cuando una tecla se presiona
+// -keydown - ocurre cuando una tecla se deja de presionar y se suelta en el mismo elemento
+// -keyup - es cuando se sulta una tecla
+// -onkeyup - ocurre despues de que los 2 eevntos anteriores hayan concluido consecutivamente
+
+
+
+
+
+// EVENTOS DE LA INTERFAZ)
+
+// -abort - ocurre cuando un elemento madre elimina a su hijo
+
+// -error - oucrre cundo sucede un error durante la carga de un archivo multimedia
+
+// -load - ocurre cuando un objeto se ha cargado
+
+// -beforeunload - ocurre antes de que el documento este a punto de descragarse
+
+// -unload - ocurre una vez que se ha descargado la pagina
+
+// -resize - ocurre cuando se cambia el tamaño de la vista del documento
+
+// -scroll - ocurre cuando se desplaza la barra de desplazamientro de un elemento
+
+// -select - ocurre despues de que el usuario selecciona algun texto de <input> o <textarea>
+
+
+
+// EJEMPLOS
+
+
+// ERROR
+// const img = document.querySelector(".img-prueba")
+// img.addEventListener('error',()=>{
+//         console.log('ha sucedido un error')
+// })
+
+// Aqui si la imagen no se alcanza a cargar saldria un error
+
+
+
+// LOAD
+// window.addEventListener(("load"),() => {
+//         console.log('ha cargado el body')
+// })
+
+// Esta se ejecutara cuando cargue toda la pagina y de hecho se puede hacer asi: ya que el evento window no ocupa ser llamado
+
+// addEventListener(("load"),() => {
+//         console.log('ha cargado el body')
+// })
+
+
+
+// BEFOREUNLOAD
+
+// addEventListener('beforeunload',()=>{
+//         console.log('te estas por ir del sitio')
+// })
+
+// Esto te lo dira despues de que le des click al enlace que te va a redireccionar
+
+
+
+// RESIZE
+// addEventListener('resize',()=>{
+//         console.log('se ha actualizado el tamaño de la pantalla')
+// })
+
+// ESTO AVISARA CADA VEZ QUE SE CAMBIE LA RESOLUCION
+
+
+
+// SCROLL
+// addEventListener('scroll',()=>{
+//         console.log('se ha scrolleado')
+// })
+
+// DETECTARA CUANDO SE HAGA SCROLL -. TAMBIEN SE PUEDE ORIENTAR PARA ELEMENTOS, POR EJEMPLO SI HAY UN DIV Y SE LE PONE AHI ASI SE PUEDE
+
+
+
+
+// SELECT
+
+// const input = document.querySelector('.input-prueba')
+// input.addEventListener('select',()=>{
+//         console.log('se ha seleccionado')
+// })
+
+
+
+// ESTO SE PUEDE USAR PARA MUCHAS COSAS:
+
+// input.addEventListener('select',(e)=>{
+//         console.log(e)
+// })
+
+// AQUI TRE ENSEÑARIA TODAS LAS PROPIEDADES PERO POR EJEMPLO:
+
+// Te puede decir la posicion en la que empezo la seleccion ya posicion en la que termino TODO CON EL TARGET
+
+// input.addEventListener('select',(e)=>{
+//         console.log(e.target.selectionStart)
+//         console.log(e.target.selectionEnd)
+// })
+
+
+// E incluso mostrarlo
+
+// const contenedor = document.querySelector('.seleccionado')
+
+// input.addEventListener('select',(e)=>{
+//         let start = e.target.selectionStart;
+//         let end = e.target.selectionEnd;
+//         let textoCompleto = input.value;
+//         contenedor.innerHTML = textoCompleto.substring(start,end);
+// })
+
+
+// ESTE ES UN CODIGO QUE LO QUE HARIA ES QUE TODO LO SELECCIONADO LO ESCRIBIRIA EN EL DIV, Y ESOO SE PUEDE HACER CON TODO LO ANTERIOR Y CON TODOS LOS DATOS QUE NOS BRINDA EL TARGET, SOLO HAY QUE SER CREATIVOS AL USARLOS
+
+// OTRO EJEMPLO:
+
+// const contenedor = document.querySelector('.seleccionado')
+
+// input.addEventListener('keyup',(e)=>{
+//         let tecla = e.key;
+//         let nuevoContenido = `la ultima tecla presionada fue: ${tecla}`
+//         contenedor.innerHTML = nuevoContenido
+// })
+
+// CADA QUE QUIERAS VER QUE PASA CON UN EVENTO, PUEDES PONER que en consola ponga el parametro "e" y mostrara todo lo que se puede ver en el y despues poner "e.target.Loquequierasver"
+
+
+
+
+
+
+
+
+
+// ------------------- TEMPORIZADORES ----------
+
+// -setTimeout() - RECIOBE UNA FUNCION, y ejecuta una funcion, despues de el tiempo especificado
+// -clearTimeout() - para pararlo se tiene que guardar en una variable el setTimeout antes y poner el nombre de la variable 
+
+
+
+// -setInterval() - Recibe una funcion y ejecuta una funcion cada que pase el periodo de tiempo especificadoç
+// -clearInterval() - para pararlo se tiene que guardar en una variable el setInterval antes y poner el nombre de la variable 
+
+
+// no es nada oculto no es nada extrali es una platica normal que se tiene con los 
 
 
