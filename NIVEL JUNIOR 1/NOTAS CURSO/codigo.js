@@ -596,6 +596,8 @@
 // document.write(resultado)
 
 // DE REPETICION
+
+// FILTER
 // let numeros = ["bobo", "crack", "poop", "buenardo", "pepe"];
 // numeros.filter(numero => document.write(numeros + "<br>"))
 // Esto lo que hace es que es un bucle, en el que se muestra numero y se deja un espacio en linea
@@ -1301,6 +1303,13 @@
 
 
 
+
+
+   function digital_root(n) {
+      console.log(n  % 9)
+    }
+
+   digital_root(456)
 
 
 

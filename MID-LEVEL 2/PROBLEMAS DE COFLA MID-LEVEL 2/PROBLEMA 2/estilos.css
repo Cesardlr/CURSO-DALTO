@@ -59,3 +59,11 @@ form{
     background: #000;
     padding: 30px;
 }
+
+.green{
+    color: aquamarine;
+}
+
+.red{
+    color: rgb(211, 86, 86);
+}
