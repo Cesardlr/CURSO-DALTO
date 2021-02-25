@@ -1,0 +1,25 @@
+body{
+font-family: serif;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-rows: 50px;
+    grid-template-columns: repeat(4,minmax(min-content,max-content));
+    grid-auto-rows: 50px;
+}
+
+.grid-container .grid-item{
+    padding: 10px;
+    border: 2px solid #48e;
+    margin: 3px;
+    background: #fff;
+}
+
+.btnConfirmar{
+    padding: 9px 40px;
+    background: #48e;
+    color: #fff;
+    border: none;
+    margin: 30px;
+}

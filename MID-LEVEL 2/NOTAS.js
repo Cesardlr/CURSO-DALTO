@@ -581,3 +581,11 @@
 // no es nada oculto no es nada extrali es una platica normal que se tiene con los 
 
 
+
+
+
+
+
+// 9) CONTROL DE FLUJO Y MANEJO DE ERRORES
+
+

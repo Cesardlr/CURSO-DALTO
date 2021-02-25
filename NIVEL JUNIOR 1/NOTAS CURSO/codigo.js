@@ -24,7 +24,7 @@
 // r = num1.concat(num2)
 // document.write(r)
 // document.write('<br>')
-// // En este ahuevo se ocupa que haya una string de texto
+// // En este a fuerzas se ocupa que haya una string de texto
 
 
 //CONCATENACION TEXTO con ${}
