@@ -7,10 +7,10 @@
 
 // -open() - carga un recurso en el contexto de un nuevo navegador o uno que ya existe
 
-        // ventana = window.open('https://youtube.com')
-        // ventana.close()
+// ventana = window.open('https://youtube.com')
+// ventana.close()
 
-        // esto de aqui cerraria 
+// esto de aqui cerraria 
 
 // -close() - cierra la ventana actual, o la ventana que ya se llamo
 
@@ -108,11 +108,11 @@
 
 
 // -Objetos barProp:
-        // -locationbar
-        // -menubar
-        // -personalbar
-        // scrollbarsstatusbar
-        // toolbar
+// -locationbar
+// -menubar
+// -personalbar
+// scrollbarsstatusbar
+// toolbar
 
 // Estos solo sirven para ver si estan visibles asi:
 
@@ -318,7 +318,7 @@
 
 // El parametro 'e' lo que hara es que va a ser como el evento, y seria buscado con la propiedad target,q ue es donde se dio click, en quue elemento del html, aqui esto devuelve esto
 
-{/* <button class="button">aprietame rata</button> */}
+{/* <button class="button">aprietame rata</button> */ }
 
 
 
@@ -574,12 +574,9 @@
 
 
 
-// -setInterval() - Recibe una funcion y ejecuta una funcion cada que pase el periodo de tiempo especificadoç
+// -setInterval() - Recibe una funcion y ejecuta una funcion cada que pase el periodo de tiempo especificado
+
 // -clearInterval() - para pararlo se tiene que guardar en una variable el setInterval antes y poner el nombre de la variable 
-
-
-// no es nada oculto no es nada extrali es una platica normal que se tiene con los 
-
 
 
 
@@ -588,4 +585,204 @@
 
 // 9) CONTROL DE FLUJO Y MANEJO DE ERRORES
 
+// X) SWITCH CASE
 
+
+
+// No se si recuerdes el segun hacer que se hace en las clases de informatica del colegio, pues en js eso se puede hacer asi:
+
+// let expr =  "Manzana"
+
+// switch (expr) {
+//         case "Banana":
+//                 console.log("Esta fruta es amarilla")
+//                 break;
+//         case "Pera":
+//                 console.log('tiene forma de mi tio roberto')
+//                 break;
+//         case "Manzana":
+//                 console.log('es roja')
+//                 break;
+//         default:
+//                 console.log('no es ninugna')
+// }
+
+
+// ALGO MUY IMPORTANTE AQUI ES PONERLE EL BREAK DESPUES DE CADA UNO DE LOS CASOS, PARA QUE SE DEJE DE EJECUTAR
+
+
+
+
+// ESTO DE ARRIBA REEMPLAZA ESTO OTRO:
+
+// if(expr==="Banana") console.log('es amarilla')
+// else if(expr==="Pera")console.log('tiene forma de mi tio roberto')
+// else if(expr==="Manzana")console.log('es roja')
+
+
+
+
+
+// Y BUEN CUAL ES MEJOR??????
+// Pues a nivel de rendimiento es mejor el if pero a nivel de efectividad al escribir el codigo es mejor el switch
+
+
+
+
+
+
+
+
+
+
+
+
+// X) MANEJO DE ERRORES CON TRY ... CATCH
+
+// try{
+
+// }catch(error){
+
+// }
+
+
+// Aqui lo que pasa es que try ejecuta una funcion y catch lo toma como parametro para ejectura la funcion si es que eso es un error, a la hora de nosotros usa try y catch, el navegador desactiva el manejo de errores y pasamos a dominarlo nosotros, entonces pues es eso nomas, ahorita haremos unos ejemplos con eso
+
+
+// try{
+
+// }catch(error){
+
+// }
+
+
+
+// EJEMPLO:
+
+// try{
+// NJDSHBNCXJKSDC
+// }catch(error){
+// console.log('ha ocurrido un error de referencia')
+// }
+
+
+// Aqui lo que dira al aparecer un error sera esto:
+// ha ocurrido un error de referencia
+
+
+// esto no puede manejar errores de sin taxis por ejemplo si escribo :
+// console.logg('esto es un error por que dice logg')
+// No diria nada por que pues eso es un error de sintaxis no de referencia
+
+
+
+
+
+// TAMBIEN SE PUEDEN HACER CATCH CONDICIONALES
+
+
+// try{
+// NJDSHBNCXJKSDC
+// }catch(error){
+//         if (3 > 5) {
+//                 console.log("3 no es mayor que 5")
+//         }else{
+//                 console.log('crack')
+//         }
+
+// Aqui cachara el error pero ejecutara el de crack ya que el condicional no permite la otra accion
+// }
+
+
+
+
+
+// FINALLY
+// El finally lo que hace es que ejectutrara siempre el codigo que este dentro de el pase lo que pase, inlcuos cuando no hayan errores
+
+
+
+// try{
+// console.log('no hay errores')
+// }
+
+//         catch(error){
+//                 if (3 > 5) {
+//                         console.log("3 no es mayor que 5");
+//                 }else{
+//                         console.log('crack');
+//                 }
+//         }finally{
+//                 console.log('me muestro pase lo que pase')
+//         }
+
+
+
+
+
+
+// const pruebaTry = ()=>{
+//         try {
+//                 return 1
+//         } catch (error) {
+//                 return 2
+//         }finally{
+//                 return 3
+//         }
+// }
+
+
+// Aqui esta prueba devolveria el 3 por que el finally es tan poderoso que sobreescribe el 1 que no devuelve ningun error, ya que solo se puede retornar una vez
+
+
+// console.log(pruebaTry())
+
+
+
+
+
+
+
+
+// SENTENCIA THROW
+// ¿Que hace el throw?
+// El throw lo que hace es que lanza un error de una 
+
+
+// THROW CON TEXTO
+// try {
+//        throw 'hola'
+// } catch (e) {
+//         console.log(e)
+// } finally {
+
+// }
+
+
+// THROW CON OBJETOS
+// try {
+//         throw {
+//                 error:"NombreDelError",
+//                 info:"Info del error",
+//         }
+// } catch (e) {
+//         console.log(e)
+// } finally {}
+
+
+
+
+// THROW CON ARRAYS
+// try {
+//         throw ['PEDRO','JOSE']
+// } catch (e) {
+//         console.log(e[0])
+// } finally {
+
+// }
+
+
+
+
+// ¿CUANDO SE DEBE DE USAR TRY?
+// Cuando es un programa muy grande, o algo asi y que ya todos los bugs estan arreglados, pero aun asi puede haber un minimo error, no se debe de abusar del try y catch
