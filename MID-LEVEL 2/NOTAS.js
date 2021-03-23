@@ -318,7 +318,7 @@
 
 // El parametro 'e' lo que hara es que va a ser como el evento, y seria buscado con la propiedad target,q ue es donde se dio click, en quue elemento del html, aqui esto devuelve esto
 
-{/* <button class="button">aprietame rata</button> */ }
+/* <button class="button">aprietame rata</button> */ 
 
 
 
@@ -786,3 +786,434 @@
 
 // ¿CUANDO SE DEBE DE USAR TRY?
 // Cuando es un programa muy grande, o algo asi y que ya todos los bugs estan arreglados, pero aun asi puede haber un minimo error, no se debe de abusar del try y catch
+
+
+
+
+
+
+
+// 10) CODIGO OBSOLETO
+
+
+// x) ¿CUANDO ALGO SE VUELVE OBSOLETO?
+
+// -Cuando deja de ser util para los requerimientos actuales
+
+// -MOTIVOS:
+// -"Deprecated" - esto aparece en la documentoacion
+// -Inutil - esto es el codigo que ya no sirve, por que ya ha sido borrado
+// -No  recomendado -   No se recomiennda usarlo
+// -Bugs o Fallos - Cuando presenta errores
+// -Esta por ser reemplazado - a punto de ser obsoleto
+// -Hay mejores metodos de hacer las cosas
+
+
+
+
+// -EFECTOS NEGATIVOS
+// -Uso excesivo de recursos
+// -Codifo con bugs o fallos
+// .Codigo inecesariamente largo
+// -SEO - no es posicionable
+
+
+
+
+// -COMO SE SABE SI ES OBSOLETO?
+// -1 de cada 3 webs utiliza librerias de js obsoletas
+
+
+
+
+
+
+
+
+
+//11) CALLBACKS
+
+
+// -Concepto:
+// -Los callbacks son funciones dentro de otras funciones
+
+// Ejemplo:
+
+// function prueba(callback) {
+//     callback('pedro');
+// }
+
+// function decirNombre(nombre) {
+//     console.log(nombre)
+// }
+
+// prueba(decirNombre)
+
+
+
+
+// class Persona{
+//     constructor(nombre,instagram){
+//         this.nombre = nombre;
+//         this.instagram = instagram;
+//     }
+// }
+
+// const data =[
+//     ["lucas dalto"],
+//     ["cesar del rio","@cesar_dlrr"],
+//     ["pepe","@pepon"],
+//     ["joselito","@joselito1234"]
+// ];
+
+// const personas = [];
+
+// for(var i = 0; i<data.length;i++){
+//     personas[i] = new Persona(data[i][0],data[i][1])
+// }
+
+// const obtenerPersona = (id,cb) =>{
+//     if(personas[id] == undefined){
+//         cb('no se encontro a la persona')
+//     }else{
+//         cb(null,personas[id],id)
+//     }
+// }
+
+// const obtenerInstagram = (id,cb)=>{
+//     if(personas[id].instagram == undefined){
+//         cb('no se encontro el instagram de esta persona')
+//     }else{
+//         cb(null,personas[id].instagram)
+//     }
+// }
+
+// obtenerPersona(0,(err,persona,id)=>{
+//     if(err){
+//         console.log(err)
+//     }else{
+//         console.log(persona.nombre)
+//             obtenerInstagram(id,(err,instagram)=>{
+            
+//         if(err) console.log(err)
+
+//             else console.log(instagram) 
+//         })
+//         // Esto es un callback
+//     }
+// })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// x)PROMESAS
+
+
+// ¿QUE SON LAS PROMESAS?
+// Las promesas sirven para no tener que usar demasiados if - else
+
+
+
+
+
+
+// HARE EL MISMO CODIGO ANTERIOR DE LOS OBJETOS DE PERSONAS PERO CON PROMESAS:
+
+// let nombre = "joselito"
+
+
+
+
+
+// Esta tiene una funcion con 3 callbacks, que es un callbacks con otros 2 callbacks
+
+// const promesa = new Promise((resolve,reject)=>{
+//     if(nombre !== "pedro") reject("lo siento el nombre no es pedro")
+//     else resolve(nombre)
+// })
+
+// console.log(promesa)
+
+
+
+
+
+// DENTRO DE LAS PROMESAS LOS DATOS ESTAN OCULTOS Y ENCAPSULADOS, ENTONCES COMO SE PUEDE ACCEDER A ELLOS?
+
+// ¿COMO ACCDER A DATOS ENCAPSULADOS DE LAS PROMESAS?
+
+// promesa.then((resultado)=>{
+//     console.log(resultado)
+// })
+
+
+
+
+
+// Este es un metodo que tienen las promesas que accede al valor result, y resive como parametro un callback
+
+
+// promesa.then((resultado)=>{
+//     console.log(resultado)
+// }).catch((e)=>{
+//     console.log(e)
+// })
+
+
+
+// ¿COMO ES QUE SUSTITUYEN LAS PROMESAS A LOS IF?
+
+// PUES EN LOS IF, TENEMOS QUE VER CUALQUIER MINIMO ERROR QUE PODRIA SUCEDER, Y YA CON LAS PROMESAS LO QUE PUDIMOS HACER ES QUE SOLO VEREMOS CUANDO ES QUE ESPECIFICAMENTE SE MUESTRA ALGUNA ACCION CUANDO SE CUMPLE LA CONDICION,. Y CUALQUIER ERROR QUE SUCEDA SERA ENVIADO AL CATCH, LO QUE LO EJECUTARA CON UN SOLO ERROR
+
+
+
+
+// MISMO CODIGO DE ARRIBA DE LAS PERSONAS PERO EN VEZ DE IF CON PROMESAS:
+
+
+
+// class Persona{
+//     constructor(nombre,instagram){
+//         this.nombre = nombre;
+//         this.instagram = instagram;
+//     }
+// }
+
+// const data =[
+//     ["lucas dalto"],
+//     ["cesar del rio","@cesar_dlrr"],
+//     ["pepe","@pepon"],
+//     ["joselito","@joselito1234"]
+// ];
+
+// const personas = [];
+
+// for(var i = 0; i<data.length;i++){
+//     personas[i] = new Persona(data[i][0],data[i][1])
+// }
+
+// const obtenerPersona = (id) =>{
+//     return new Promise((resolve,reject)=>{
+//         if(personas[id] == undefined) reject('no se ha encontrado la persona')
+//         else{resolve(personas[id])}
+//     })
+// }
+
+// const obtenerInstagram = (id)=>{
+//    return new Promise ((resolve,reject)=>{
+//     if(personas[id].instagram == undefined) reject('no se ha encontrado el ig')
+//     else{resolve(personas[id].instagram)}
+//    })
+// }
+
+
+
+
+
+
+
+// ESTAS SON 2 FUNCIONES UNA QUE VE SI EXISTE EL INSTAGRAM Y OTRA PARA VER SI EXISTE ESA PERSONA, y lo que hacen es que retornan una promesa, que al final se va a desencapsular sus datos, mas abajo, al ejecutar la funcion de obetnerPerosna mas abajo
+
+// NOTA: EL PARAMETRO id EN ESTAS 2 FUNCIONES, NO IMPORTA QUE DIGA, ES COMO UNA NUEVA VARIABLE QUE SE ESTA ESPECIFICANDO AHI, POR LO QUE LE PUEDES PONER hiceKkCk si quieres y va a funcionar igual, solo lo ponjgo por que fue una duda que tenia yo.
+
+
+
+
+
+// let id = 3;
+
+// obtenerPersona(id).then((persona)=>{
+//     console.log(persona.nombre);
+//     return obtenerInstagram(id)
+// }).then((instagram)=>{
+//     console.log(instagram)
+// }).catch((e)=>{
+//     console.log(e)
+// })
+
+
+
+
+
+// AQUI EN ESTA FUNCION SE EXTRAEN LOS VALORES DE PERSONA, Y DE EL INSTAGRAM, DE LAS PROMESAS QUE FUERON RETORNADAS EN LAS FUNCIONES PRINCIPALES, Y DESPUES SE CACHAN LOS ERRORES SI ES QUE HAY ALGUNO PARA DESPUES PODERLO MOSTRAR
+
+
+
+
+// AQUI LO QUE ESTA PASANDO ES QUE SIEMPRE QUE HAY UN ERROR, CON LOS REJECTS DE LAS PROMESAS SE PASAN AL CACTH, QUE TIENE EL PARAMETRO "e", por lo que regfresa cualquier error que fue dado
+
+
+
+
+
+// x)FUNCIONES ASINCRONAS:
+
+
+
+
+// AQUI NO SE MOSTRARIA DESPUES DE UN SEGUNDO POR QUE NO ES ASINCRONA:
+
+// const objeto = {
+//     propiedad1:"valor1",
+//     propiedad2:"valor2",
+//     propiedad3:"valor3"
+// }
+
+
+// function obtenerInformacion() {
+//     setTimeout(()=> {return objeto },1000)
+// }
+
+// console.log(obtenerInformacion())
+
+
+
+
+
+
+
+// AQUI YA SE MOSTRARIA DESPUES D EUN SGEUNDO GRACIAS A QUE LAS PROEMSAS SON ASINCRONAS
+
+
+
+
+// const objeto = {
+//     propiedad1:"valor1",
+//     propiedad2:"valor2",
+//     propiedad3:"valor3"
+// }
+
+
+// const obtenerInformacion = () =>{
+//    return new Promise((res,rej)=>{
+//     setTimeout(()=> {res (objeto) },1000)
+//    })
+// }
+
+// obtenerInformacion().then(resultado =>{
+//     console.log(resultado)
+// })
+
+
+
+
+
+// LAS PROMESAS SON ASINCRONAS, POR LO QUE AQUI YA NOS MOSTRARIA DESPUES DE 1 SEGUNDO EL VALOR DEL OBEJTO, GRACIAS A QUE ESTA DENTRO DE UNA PROMESA
+
+
+
+
+
+
+
+// ESO DE AHI ARTRIBA SE POUEDE HACER DE OTRA MANERA CON ASYNC AWAIT ASI:
+
+
+
+
+
+
+// const objeto = {
+//     propiedad1:"valor1",
+//     propiedad2:"valor2",
+//     propiedad3:"valor3"
+// }
+
+
+// const obtenerInformacion = () =>{
+//    return new Promise((res,rej)=>{
+//     setTimeout(()=> {res (objeto) },1500)
+//    })
+// }
+
+
+// const mostrarResultado = async ()=>{
+//     resultado = await obtenerInformacion()
+//     console.log(resultado)
+// }
+
+// mostrarResultado()
+
+
+
+
+
+
+
+
+// Y CUAL ES MEJOR EL ASYNC AWAIT O COIN PROMESAS?
+
+
+// PUES DEPENDE DEL CASO, PERO EN ESTE CASO ES MEJOR EN PROMESAS YA QUE DE LA MANERA DE ASYNC AWAIT HAY MAS MANERAS
+
+
+
+
+
+
+
+// EJHEMPLO EN LA QUE ES MEJRO USAR ASYNC AWAIT
+
+
+
+
+// CON PROMESAS:
+
+
+// const obtenerInformacion = (text)=>{
+//     return new Promise((resolve,reyect)=>{
+//         setTimeout(()=>{resolve(text)},Math.random()*200)
+//         // Aqui al final lo pude hacer para que se hiciera en un tiempo random, por lo que si se hgacen mas se puede suceder siempre en un orden distinto asi:
+//     })
+// }
+
+
+// obtenerInformacion("pito").then(resultado=> console.log(resultado))
+// obtenerInformacion("cesar").then(resultado=> console.log(resultado))
+// obtenerInformacion("ceragui").then(resultado=> console.log(resultado))
+
+
+
+
+
+
+
+// CON ASYNC AWAIT Y PROMESAS JUNTAS:
+
+
+// const obtenerInformacion = (text)=>{
+//     return new Promise((resolve,reyect)=>{
+//         setTimeout(()=>{resolve(text)},Math.random()*200)
+//     })
+// }
+
+// const mostrarData = async ()=>{
+//     data1 = await obtenerInformacion("1:joselito")
+//     data2 = await obtenerInformacion("2:cesar")
+//     data3 = await obtenerInformacion("3:ceragui")
+
+
+
+
+
+//     console.log(data1)
+//     console.log(data2)
+//     console.log(data3)
+// }
+
+// mostrarData()
+
+
+
+// aqui lo que paso es que ya que tiene el await, no se puede poner el de cesar hasta que ya este el de joselito, tiene que esperar a que pase el otro
