@@ -1,0 +1,12 @@
+#getInfo{
+    width: 100px;
+    color: blue;
+}
+
+.resultado{
+    font-family: arial;
+    color:black;
+    background: #efefef;
+    font-size: 15px;
+    margin: 15px;
+}

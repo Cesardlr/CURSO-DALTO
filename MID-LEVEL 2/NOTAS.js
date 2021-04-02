@@ -318,7 +318,7 @@
 
 // El parametro 'e' lo que hara es que va a ser como el evento, y seria buscado con la propiedad target,q ue es donde se dio click, en quue elemento del html, aqui esto devuelve esto
 
-/* <button class="button">aprietame rata</button> */ 
+/* <button class="button">aprietame rata</button> */
 
 
 
@@ -894,7 +894,7 @@
 //     }else{
 //         console.log(persona.nombre)
 //             obtenerInstagram(id,(err,instagram)=>{
-            
+
 //         if(err) console.log(err)
 
 //             else console.log(instagram) 
@@ -1217,3 +1217,534 @@
 
 
 // aqui lo que paso es que ya que tiene el await, no se puede poner el de cesar hasta que ya este el de joselito, tiene que esperar a que pase el otro
+
+
+
+
+
+
+
+
+
+// 12)PETICIONES HTTP
+
+
+// -QUE SON?
+// -Una peticion HTMLOutputElement, es la peticion que enviamos a un servidor y eso nos devuelve una data
+
+
+
+// -CLIENTE Y SERVIDOR
+
+// -Nosotros somos el cliebte, esw toda la informacion a la que accede el usuario, y el servidor es el backend
+
+
+// -Cuando entramos a una pagina web le pedimos a un servridor iunformacion,  ese servidor devuelbe esa informacion
+
+
+
+// -Las peticiones http, no ghuarda informacion, no son cookies, ni cache ni nada de eso,  y estos no guardan la info
+
+
+
+
+// ¿COMO LAS MANEJAMOS?
+// -Con AJAX, FETCH, AXIOS, ETC.
+
+// -El sevridor nos puede devolver informaicon para asi poder manejarla
+
+
+
+
+
+
+
+
+// 72)DATOS ESTRUCTURADOS (JSON)
+
+
+// Los JSON son objetos, pero tiene una diferencia es que los jsons sus propiedades del obeto van en comillas
+
+
+// OBJETO NORMAL
+
+// const objeto = {
+//     variable1: "pedro",
+//     variable2: "joselito"
+// }
+
+
+
+// OBEJTO JSON
+
+// const objeto2 = {
+//     "variable1" : "pedro",
+//     "variable2" : "joselito"
+// }
+
+
+
+// y PARA QUE TIENE QUE SER EN COMILLAS?
+// Para cuando se tiene que mandar al servidor el servidor ocupa recibirlo en comillas si no no funciona
+
+
+
+
+
+// ¿COMO SE MANDAN LOS ARCHIVOS JSON?
+// PARA PODER ENVIARLOS SE TIENEN QUE SERIALIZAR, POR QUE SI NO OTROS PROGRAMAS NO LOS PODRIAN LEER DE UNA FORMA OPTIMA
+
+
+// ¿COMO SE SERIALIZA?
+// SE TIENE QUE PONER TODO EL OBJETO ENTRE COMILLAS
+
+// const objeto2 = '{"variable1": "pedro", "variable2": "joselito"}'
+
+
+
+
+// ¿COMO PODEMOS SERIALIZARLOS Y DESERIALIZARLOS?
+
+// const deserializado = {"variable1": "pedro", "variable2": "joselito"}
+
+// const serializado = JSON.stringify(deserializado)
+// console.log(typeof serializado)
+
+
+// EL METODO JSON.stringify SIRVE PARA SERIALIZARLOS
+
+
+
+
+// ¿COMO SE LE HACE PARA DESERIALIZARLOS?
+
+// const serializado = '{"variable1": "pedro", "variable2": "joselito"}'
+
+// const deserializado = JSON.parse(serializado)
+// console.log(deserializado)
+
+
+
+
+
+
+
+
+
+
+// 73)AJAX
+
+// AJAX sirve para poder recibir datos de solicitudes hechas al servidor pero sin tener que reiniciar la pagina incial
+
+// -Objeto XMLHttpRequest
+// -SE CREA ASI:
+
+
+// const request = XMLHttpRequest
+
+// console.log(request)
+
+// Estio devuelve un objeto, con diferente tipos de peticiones, GET y POST.
+
+
+
+
+
+
+// CODIGO DE EJEMPLO DE USO EN AJAX
+// - este codigo esta dentro de htdocs en el archivo de xampp en el disco local c:
+
+// -El archivo informacion.txt es el texto que contiene un texto en JSON dentro
+
+
+
+// let request
+
+// if(window.XMLHttpRequest) request = new XMLHttpRequest()
+// else  request = new ActiveXObject("Microsoft.XMLHTTP")
+
+
+// Este condicional se hace por que en algunos navegadores AJAX no es soportado, entonces si existe s ecrea normal, si no se crea de esa otra forma para internet explorer
+
+
+
+// request.addEventListener('load',()=>{
+
+
+    // console.log(request.readyState)
+    // ESTO LO QUE HARIA ES QUE PASARIA 4 VECES, POR QUE EL READYSTATE TIENE 4 ESTADOS:
+
+    // SIGNIFICDO DE LOS ESTADOS
+    // 1:Que la solicitud se realizo correctamente
+    // 2:Que la solicitud se envio correctamente
+    // 3:Que la solicitud se esta procesando correctamente
+    // 4:Que esta todo listo, se dio una respuesta
+
+
+    // LA DATA SOLO SE DEVUELVE EN EL READY STATE 3 Y 4
+
+
+
+//     let response;
+//     if (request.status == 200) response = request.response
+//    else response = "hubo un error encontrando el archivo"
+//    console.log(JSON.parse(response).Nombre)
+
+//    Esto ya de aqui me devolveria el nombre que esta dentro del text y se usa el parse para deserializarlo
+
+
+    // Aqui este status lo que hara es va a checar el estado en el que va el sistema, y el estado, que es donde sale el famoso, 404, que es el numero que tiene un error, pero un estado optimo es el 200, por lo que si hay un error en 
+// })
+// El evento readystatechallenge, lo que hace es que se fija si a cambiado la propiedad readystate
+
+
+
+// request.open("GET","informacion.txt")
+
+// Esto lo que hace es que abre la peticion get, y el segundo parametro es la url de donde la pedira
+
+
+
+// request.send();
+// EL SEND LO QUE HACE ES QUE ENVIA LOS DATOS AL CLIENTE, SI NO ESTUVIERA NO EXISTIERA LO DEL TXT
+
+
+
+
+
+// console.log(request.responseText)
+
+// Esto no devuelve informacionsolo cuando el codigo de respuesta sea tres o 4 y que el estatus sea 200
+
+// Mientras eso no pase ese console.log() no serviria de nada
+
+
+
+
+
+
+
+
+
+
+// ENVIANDO PETICIONES CON EL METODO POST
+
+// let request
+
+// if(window.XMLHttpRequest) request = new XMLHttpRequest()
+// else  request = new ActiveXObject("Microsoft.XMLHTTP")
+
+
+// request.addEventListener('load',()=>{
+// let response;
+// if (request.status == 200 || request.status ==201) response = request.response
+
+// // Aqui se le puso tambien lo de el 201, por que es el que se ocupa para enviar este metodo post
+
+// else response = "hubo un error encontrando el archivo"
+// console.log(JSON.parse(response))
+// })
+
+
+// request.open("POST","https://reqres.in/api/users")
+// // Aqui se le pasa el meotdo post, con el link de la pagina con el codigo que usaremos
+
+
+// request.setRequestHeader("Content-type" ,"application/json;charset=UTF8")
+// // Este de aqui es para poder obtener los datos de una forma que entienda una persona normal, por que si no te lo manda con un chorro de kletras raras y asi, por lo que se pone el charset=UTF8
+
+// request.send(JSON.stringify(
+//     {
+//         "name": "morpheus",
+//         "job": "leader"
+//     }
+// ));
+
+// Esto es lo que enviaremos con post, pero primero se tiene que serializar, entonces se le da lo de stringyfy
+
+
+
+
+
+
+
+
+// 74)FETCH
+
+// ¿Que es?
+// -Es una forma de usar el objeto XMLHttpRequest , este siempre va a devolver una promesa encapsulada, ya que esta basado en promesas, cuando enviamos una solicitud en fecth, esa es una respuesta encapsulada
+
+
+
+
+// peticion = fetch("https://reqres.in/api/unknown/2")
+
+// Fetch tiene el metodo get como predeterminado
+
+// peticion.then(res=> console.log(res))
+// Si esto estuviera asi nomas se mostraria pero el dato seguiria encapsulado
+
+
+
+// ¿COMO SE ACCEDE A ESOS DATOS ENCAPSULADOS?
+// -Con estos metodos:
+// -Text()
+// -JSON()
+// -Blob()
+// -FormData()
+// -ArrayBuffer()
+
+
+
+// -Text()
+// peticion
+
+    // .then(res=>res.text())
+    // Solo con un res devuielve la promesa encapsulada asi que se ocupa poner otro .then para ahora si desencapsularla
+
+
+    // .then(res=> console.log(res))
+    // Esto ya devuelve la cadena desencapsulada
+
+
+
+// se le pone then por que es una peticion, como es asincrona no tenemos que esperar a que pase nada
+
+// console.log(peticion)
+
+
+
+
+// Todo eso de ahi atras se pued esimplificar a solo:
+
+// fetch("https://reqres.in/api/unknown/2")
+//         .then(res=>res.text())
+//         .then(res=> console.log(res))
+
+
+
+// eso sustituye a todo lo de atras todo este codigo que hicimos con AJAX:
+
+// let request
+
+// if(window.XMLHttpRequest) request = new XMLHttpRequest()
+// else  request = new ActiveXObject("Microsoft.XMLHTTP")
+
+
+// request.addEventListener('load',()=>{
+// let response;
+// if (request.status == 200 || request.status ==201) response = request.response
+
+// console.log(JSON.parse(response))
+// })
+
+
+// request.open("POST","https://reqres.in/api/users")
+
+
+
+// -JSON:
+
+// -Ese de json en vez de devolver todo el texto asi te devuelve un archivo json
+
+// fetch("https://reqres.in/api/unknown/2")
+//         .then(res=>res.json())
+//         .then(res=> console.log(res))
+
+
+
+
+
+// ¿COMO HACEMOS UNA PETICION POST EN FETCH?
+
+// fetch("https://reqres.in/api/users", {
+//     method: "POST",
+//     body : JSON.stringify({
+//         "nombre": "joselito",
+//         "edad" : 27
+//     }),
+//     headers: {"Content-type" : "application/json"}
+// })
+
+// El fetch, obtiene 2 parametros uno es la ruta de lo que sacara, y el 2do es un objeto, con mas elementos que son:
+
+// - method: ese da el metoodo que se usara
+
+// -body : ese recibe un objeto donde se le debe de poner lo que quieres que regreses
+
+// -headers: son otros parametros para poder que se lea el contenido, pero depeneden del contenido que se vaya a enviar
+
+
+
+        // .then(res=>res.json())
+        // .then(res=> {
+        //     console.log(res.nombre); 
+        //     console.log(res.edad)})
+
+
+
+// -BLOB:
+
+// const imagen = document.querySelector(".imagen")
+// const btn = document.querySelector(".btn")
+
+// btn.addEventListener('click',()=>{
+//     fetch("foto.png")
+//     .then(res=>res.blob())
+    
+//     .then(img=> imagen.src = URL.createObjectURL(img))
+// })
+
+    // Aqui que hicimos?, accedimos al objeto URL que es un objeto nativo, y tiene un metodo que crea una ulr, para que el objeto se pueda visualizar, esto crea una ruta imaginaria, osea siempre cambiara la url diferente y ahi almacena la misma imagen
+
+
+
+
+
+
+
+
+
+    // 75)LIBRERIA AXIOS
+    // -AXIOS ES UN REEMPLAZO MAS MODERNO DE FETCH
+
+    // -ESTE ESTA BASADO EN PROMESAS, PERO USA LA TECNOLOGIA, XMLHttpRequest
+
+    
+
+//AXIOS
+
+// EJEMPLO DE OPTIMIZACION CON AXIOS
+
+
+// -MISMO COIDGO CON FETCH
+    // fetch("informacion.txt")
+    //     .then(res =>res.json())
+    //     .then(res=>console.log(res))
+
+
+// -MISMO CODIGO CON AXIOS
+    // axios("informacion.txt")
+    //     .then(res=>console.log(res.data))
+
+    // Con axios no se necesita convertir a json entonces te ahorras otra linea de codigo    
+
+
+    // Axios por defecto ya tiene el meotdo GET, y ya tiene puesto los headers
+
+
+
+    // COMO SE LE HACE SI QUEREMOS USAR EL METODO POST?
+
+    // -FORMA OPTIMIZADA DE USAR EL POST
+
+    // axios.post("https://reqres.in/api/users",{
+    //     "nombre":"pedro",
+    //     "apellidos":"paramo"
+    // })
+    //     .then(res=>console.log(res))
+
+    // -Aqui se especifica el metodo post, por lo que no se le ocupa poner nada mas, mas que lo que va a decvolver
+
+
+
+    // -FORMA SIN OPTIMIZAR DEL POST EN AXIOS
+    // axios("https://reqres.in/api/users",{
+    //     method: "post",
+    //     data: {
+    //         "nombre": "lucas",
+    //         "apellido":"perez" 
+    //     }
+    // })
+    //     .then(res=>console.log(res))
+    
+
+    // Aqui no se puso el .post, por eso tuvimos que poner las caracteristicas como segundo arametro, con los datos en la seccion de data
+
+
+
+    // AXIOS SIRVE PARA CUANDO SON MUCHAS PETICIONES, Y FETCH CUANDO SON POCAS
+
+
+
+
+
+
+
+
+
+// 76) FETCH Y AXIOS CON ASYNC AWAIT
+
+// const getName = ()=>{
+//     fetch("informacion.txt")
+//         .then(res=>{
+//             if(res.ok){
+                
+                 // El ok es el estado de si se ejecuto o no la peticion correctamente, true es que si false que no
+
+//                 Promise.resolve(res)
+//                 return
+//             }
+
+//             Promise.reject(res);
+//         })
+//         .then(res=>console.log(res))
+//         .catch(e=>console.log(e))
+// }  
+
+// getName()
+
+
+// Aqui si esto se usa asi como esta, si todo esta bien en el console.log antes del catch, por lo que eso no se alcanza a ejecutar entonces ese regresaria undefined y aqui es donde se usa async await mira:
+
+
+
+// MISMO CODIGO CON ASYNC AWAIT
+
+// const getData = async()=>{
+//     let peticion = await fetch("informacion.txt");
+
+     // Aqui peticion es una promesa, por que fetch devuelve promesas, pero es una promesa con la data encapsulada entonces como la desencapsulamos?
+
+     // PUES USANDO UNO DE LOS METODOS DE FETCH
+    
+//     let resultado = await peticion.json()
+
+//     let htmlCode =  `El nombre es: ${resultado.Nombre} <br>
+//     La edad es: ${resultado.Edad}`
+
+//     let div = document.createElement("DIV");
+//     div.classList.add("resultado");
+//     div.innerHTML = htmlCode
+//     document.body.appendChild(div)
+
+     // Aquieste codigo lo que hace es que cada que se le de click a ese boton, se creara un nuevo div, con ese codigo HTML, y se metera en el body, con unos estilos de el arcivo css
+// }  
+
+// document.querySelector('.btn').addEventListener('click',getData)
+
+
+
+
+// MISMO CODIGO CON AXIOS:
+
+// const getData = async()=>{
+//     let resultado = await axios("informacion.txt");
+
+     // En este el axios pasa a ser directamente el resultado, por que no lo ocupas cambiar a json, ya que ya viene todo eso asi por defecto, y ya se consigue toda la data de esa manera
+
+//     let htmlCode =  `El nombre es: ${resultado.data.Nombre} <br>
+//     La edad es: ${resultado.data.Edad}`
+
+     // Aqui antes de todo ocupamos pasara  ala seccion de dat primero
+
+//     let div = document.createElement("DIV");
+//     div.classList.add("resultado");
+//     div.innerHTML = htmlCode
+//     document.body.appendChild(div)
+    
+// }  
+
+// document.querySelector('.btn').addEventListener('click',getData)
+
+
