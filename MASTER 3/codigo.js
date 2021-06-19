@@ -398,9 +398,217 @@
 
 
 // Te devuelve el valor almacenado en la variable
-const saludar = () => nombre = 'pedro' ;
+
+// const saludar = () => nombre = 'pedro' ;
 
 
-resultado = saludar()
+// resultado = saludar()
 
-console.log(resultado)
+// console.log(resultado)
+
+
+
+// X) LAS FUNCIONES FLECHA NO SON ADECUADAS PARA SER USADOS COMO MÉTODOS Y NO PUEDEN SER USADOS COMO CONSTRUCTORES
+
+
+// "use strict"
+
+// USANDO THIS CON FUNCION NORMAL
+
+// const objeto = {
+//     nombre: "lucas",
+//     saludar: function () {
+//         // Aqui el nombre lo obtiene desde el mismo objeto
+//         console.log(`hola ${this.nombre}`)
+//     }
+// }
+
+// Ejeecutamos la funcion
+// objeto.saludar()
+
+
+
+
+
+
+
+// THIS CON FUNCION FLECHA
+
+
+// const objeto = {
+//     nombre: "lucas",
+    // Al ser con funcion flecha el this no funciona igual como si fuera el nombre del objeto, dice undefined, por que el this lo toma como el objeto de window
+//     saludar: ()=> console.log(`Hola ${this.nombre}`)
+// }
+
+// Aqui en esta funcion si le añadimos al objeto la propiedad nombre ya lo toma como this
+// window.nombre = 'cesar'
+
+
+// ME DIRIA HOLA CESAR
+// Ejeecutamos la funcion
+// objeto.saludar()
+
+
+
+
+
+
+// X) LAS FUNCIONES FLECHA TAMPOCO SE PUEDEN USAR COMO CONSTRUCTOR
+
+// "use strict"
+
+
+// FUNCION NORMAL
+
+// function constructorPersona(nombre, apellido){
+//     this.nombre = nombre;
+//     this.apellido = apellido;
+// }
+
+// const persona = new constructorPersona('cesar', 'del rio')
+
+// console.log(persona)
+
+
+
+// FUNCION FLECHA
+
+// const constructorPersona2 = (nombre, apellido)=>{
+//     this.nombre = nombre;
+//     this.apellido = apellido;
+// }
+
+// const persona2 = new constructorPersona2('angela', 'del rio')
+
+// AQUI ME TIRA UN ERROR AL QUERER PONERLO EN CONSOLA
+
+// console.log(persona2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 4) THIS CONTEXTUAL
+
+// "use strict"
+
+
+// This fuera de cualquier funcion es el objeto WINDOW
+// console.log(this)
+
+
+
+// ESTO DARIA TRUE COMO RESULTADO POR QUE SON LO MISMO
+// console.log(this === window)
+
+
+
+
+// THIS DENTRO DE UNA FUNCION
+
+// AQUI ESTE CODIGO NO FUNCIONAIRIA
+// Por que el this.nombre al no tener contenedor va directamente a la window
+
+// this.nombre = "dalto"
+
+// function saludar() {
+//     console.log(`Hola ${this.nombre}`)
+// }
+
+// saludar()
+
+
+
+
+
+
+
+// COMO LO PODEMOS HACER FUNCIONAR?
+
+
+// Seguimos teniendo la misma funcion
+
+// function saludar() {
+    // console.log(`Hola ${this.nombre}`)
+// }
+
+
+
+// Tenermos que hacer un objeto contenedor
+
+// const objeto = {
+    // Creamos el nomnre en el this dentro del objeto
+    // nombre:'Cesar',
+
+    // Llamamos a la funcion ya hecha pero con el this dentro del mismo contenedor
+
+    // saludar:saludar
+
+    // Se puede acortar asi:
+
+    // saludar
+// }
+
+
+// Ejecutamos la funcion
+// objeto.saludar()
+
+
+
+
+
+
+// EJEMPLOS DE SITUACION ESPECIAL
+
+// "use strict"
+
+// this.nombre = 'Jose';
+
+// const objeto = {
+//     nombre : 'lucas',
+//     saludar: ()=>{
+//         console.log(`Hola ${this.nombre}`)
+//     }
+// }
+
+
+
+// function otroContexto() {
+//     nombre = 'Roberto',
+//     objeto.saludar()
+// }
+
+
+// otroContexto()
+
+
+
+// ESTE CODIGO TE DARIA COMO RESULTADO 'Hola Roberto'
+
+// ¿POR QUE?
+// por que en el otroCobtexto se esta redefiniendo this poniendole el nombre de roberto
+
+
+
+
+
+
+
+
+// X) FUNCIONES RECURSIVAS
+
+// ¿Que es recursividad?
+// Cuando una funcion se llama a si misma
