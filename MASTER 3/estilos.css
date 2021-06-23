@@ -1,0 +1,152 @@
+body{
+    color:#222;
+    font-family: sans-serif;
+}
+
+.texto{
+    margin:20px;
+}
+
+
+/* DEL RELOJ CON DATE */
+
+.reloj {
+    background: linear-gradient(#111, #999);
+    border: 2px solid #000;
+    display: inline-flex;
+    border-radius: 9px;
+}
+
+.reloj div{
+    color: #fff;
+    padding: 5px 7px;
+    font-size: 20px;
+    font-family: monospace;
+}
+
+
+
+
+/* DEL LOCAL STORAGE */
+
+body{
+    padding:0;
+    margin:0;
+}
+
+.modal-overlay {
+    background: rgba(0,0,0,0.7);
+    width:100%;
+    height: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    animation: aparecer 1s forwards;
+}
+
+
+.modal{
+    background: #fff;
+    margin: 30px;
+    padding: 20px;
+}
+
+button{
+    padding: 9px 20px;
+    border: none;
+    margin: 3px 9px;
+    background: #ddd;
+    cursor: pointer;
+}
+
+button:hover{
+    background: #bbb;
+}
+
+@keyframes aparecer{
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+} 
+
+
+@keyframes desaparecer{
+    from{
+        opacity:1;
+    }
+    to{
+        opacity:0;
+    }
+} 
+
+
+
+
+
+
+
+
+/* DEL DRAG AND DROP */
+
+.rectangulo{
+    padding: 100px 300px;
+    background: #ccc;
+    margin: 50px;
+    outline: 6px dashed #aaa;
+}
+
+.circulo{
+    border-radius: 50%;
+    padding: 40px;
+    margin: 10px;
+    background: #f00;
+    display: inline-block;
+    cursor: grab;
+}
+
+
+
+
+/* DEL EJEMPLO DE USO DE DRAG AND DROP */
+
+.texturas{
+    margin:10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+
+    /* Este es para que al dar click no se seleccione el texto de en medio */
+    user-select: none;
+}
+
+.texturas div{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin: 6px;
+
+    /* Este es para que si te deje seleccionar los div */
+    user-select: all;
+}
+
+.texturas div:active{
+    opacity:.55;
+}
+
+.textura1{
+    background: url('textura 1.jpg');
+}
+.textura2{
+    background: url('textura 2.jpg');
+}
+.textura3{
+    background: url('textura 3.jpg');
+}
+
+
+.zona{
+    margin: 10px;
+    background: #ddd;
+    height: 200px;
+}
