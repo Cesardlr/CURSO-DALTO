@@ -1641,10 +1641,10 @@
 
 
 // circulo.addEventListener('dragstart', (e)=>{
-    
+
 //     // Pasamos los datos aqui, el dato que se pasaria seria la clase del objeto que se movio, es como gaurdarlo en una variable
 //     e.dataTransfer.setData('clase', e.target.className)
-    
+
 
 //     // Obtenemos los datos que se guardaron anteriormente
 //     // console.log(e.dataTransfer.getData('clase'))
@@ -1692,8 +1692,8 @@
 
 // zona.addEventListener('dragover', (e)=>{
 
-    // Esto es para que si permita que entre una textura
-    // e.preventDefault()
+//     // Esto es para que si permita que entre una textura
+//     e.preventDefault()
 
 // })
 
@@ -1704,11 +1704,11 @@
 
 // zona.addEventListener('drop',(e)=>{
 
-    // Hacemos variable n que sera el dato que pasa la textura, pasado en la funcion tranferirTextura
-    // let n = e.dataTransfer.getData("textura")
+//     // Hacemos variable n que sera el dato que pasa la textura, pasado en la funcion tranferirTextura
+//     let n = e.dataTransfer.getData("textura")
 
-    // Le cambiamos el bg a la zona con la textura que quedo
-    // zona.style.background = `url("textura ${n}.jpg")`
+//     // Le cambiamos el bg a la zona con la textura que quedo
+//     zona.style.background = `url("textura ${n}.jpg")`
 
 // })
 
@@ -1720,7 +1720,7 @@
 
 // for (let i = 1; i < texturas.children.length + 1; i++) {
 //     // i vale uno para que sea el numero de textura correcto y luego para que se ejecuten todas le añadimos 1 al length 
-    
+
 
 //     // A cada uno le ponemos un event listener de dragstart con una funcion que se llama transferir textura con el valor de i dentro y el evento
 
@@ -1737,13 +1737,427 @@
 
 // const transferirTextura = (n,e) =>{
 
-//     // Aqui pasamos los datos de la textura a la que se le da click llamandola textura, pasando el valor de n que seria el numero de textura
+// //     // Aqui pasamos los datos de la textura a la que se le da click llamandola textura, pasando el valor de n que seria el numero de textura
 
 //     e.dataTransfer.setData('textura',n)
 // }
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 6) API DE GEOLOCALIZACION */
+
+"use strict"
+
+
+// ¿COMO SE ACCEDE A LA LOCALIZACION?
+
+// El objeto navigator es todo lo que tiene que ver con el navegador
+
+// const geolocation = navigator.geolocation
+
+// console.log(geolocation.getCurrentPosition())
+
+
+// Este es un  objeto con varios metodos que son:
+
+/* 1) getCurrentPosition() - Obtiene la posicion actual
+    // -parametros (position, error, options)
+    // -propiedades de option ( enableHightAccuracy, timeout, maximumAge) */
+
+
+// const geolocation = navigator.geolocation
+
+// // Se pone como paremetro pos para poder conocer la posicion
+// const posicion = (pos)=>{
+
+//     // Este es el objeto completo
+//     console.log(pos)
+
+//     // Asi se podria ver algo en especifico por ejemplo la latitud
+//     console.log(pos.coords.latitude)
+// }
+
+// // Asi se pone para poder detectar errores
+// const err = (e) => console.log(e)
+
+// const options = {
+
+//     // Este de maximumAge lo que hace es que te pregunta cuanto tiempo lo quieres guardae en cache esa posicion
+
+//     // Esto diria que no guardara nada, para que siempre te de la actual y que no te de una obsoleta
+
+//     maximumAge : 0,
+
+
+//     // Este es para ver cuanto tardara en decirte la data
+//     timeout:3000,
+
+
+//     // Tener alta precision en la:
+
+//     enableHightAcurracy: true
+
+// }
+
+// // Ya con esto te diria que quiere saber tu ubicacion
+
+// geolocation.getCurrentPosition(posicion, err,options )
+
+
+
+
+// -watchPosition() - antecCambios de la posicion lo muestra
+// -clearWatch() - esto elimina los datos que se van cambiando
+
+
+
+// ESTA API  TIENE DIFERENTES FUNCIONALIDADES, QUE PUEDE SERVIR PARA MOSTRAR LA LOCALIZACION ACTUAL EN LA API REST DE GOOGLE MAPS O ALGO ASI
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* X) HISTORIAL */
+
+
+// ¿Como se ve el historial y a que se refiere?
+
+// console.log(history)
+
+// El historial lo que hace es que ve cuanto has viajado en una pestaña, no ves todas las pestañas que has visto si no que ve todo lo que has hecho y como te has movido dentro de una sola pestaña
+
+
+/*1) - back() - te devuelve un movimiento atras */
+//  - es como darle a la felchita de la izquierda arriba al lado de donde se escribe la url en el navegador
+
+// history.back()
+
+
+/*2) -forward() - este va adelante es como darle a la flechita de la derecha */
+
+// history.forward()
+
+
+
+// tamaño del historial
+
+// console.log(history.length)
+
+
+/* 3) go() - recarga la pagina*/
+
+// Este si se deja ahi no va a dejar de recargarse por lo que se le pueden dar unos numeros de parametros
+
+// - La rearga una vez
+// history.go() o history.go(0)
+
+// - Te lleva a la pagina numero 1
+// history.go(1)
+
+// - te lleva una pagina atras
+// history.go(-1)
+
+
+
+
+/* 4) pushState() - modifica la url y conserva la info */
+
+// Tenemos que decir que nos diga
+
+// Esto ya te devuelve la url de la pagina
+
+// console.log(location.href)
+
+
+// Esto tiene 3 parametros el 1 es la data que se va a pasar, el 2 es el titulo que por lo regular no se necesita ni se usa, y lo ultimo es la direccion nueva que va a quedar con un ? primero SIEMPRE
+
+// history.pushState({nombre: "pedro"}, "titulo", "?jajaxd")
+
+// Despues esto se estaria agregando a la URL poniendo al final ?jajaxd
+
+// Esto despues crearia una nueva entrada en el historial
+
+// Cada que se añade algo se va a hacer una nueva entrada al hitorial 
+
+
+
+
+
+/* propiedad state y evento popstate */
+
+// Por ejemplo si damos push state ahora la data que esta dentro que seria el nombre pedro, quedaria ahi dentro, 
+
+// history.pushState({nombre: "pedros"}, "titulo", "?jaja2xd")
+
+
+// Para poder ver el estado de la pagina solo tenemos que poner:
+
+// console.log(history.state)
+
+// En la pagina con la url de ?jajaxd nos va a devolver:;
+
+// {nombre: "pedro"}
+
+
+
+
+
+// ¿COMO PODRIAMOS VER EL STATE SIN TENER QUE HACER ESO SIEMPRE?
+
+// Con el evento popState en la window
+
+// addEventListener('popstate', (e)=>{
+//     console.log(e.state.nombre)
+// })
+
+
+
+/*  -replaceState  - reemplaza el estado actual con el que se le añade*/
+
+// history.replaceState({nombre: "pedros"}, "titulo", "?jaja2xd")
+
+// Aqui no queda en el historial el cambio solamente reemplaza la actual pero no queda registro alguno d elas otras
+
+
+
+
+// CON ESTO SE PUEDE MANEJAR EL HISTORIAL, HACER CAMBIOS EN LA PAGINA, ETC.
+
+// HAY MUCHOS USOS PARA ESTO CADA QUIEN VERA COMO LO USA.
+
+
+
+
+
+
+
+
+
+
+/* 7) FileReader */
+
+// Para que sirve?, este sirve para poder leer archivos
+
+// Pero antes nosotros no usabamos fetch para leer archivos??
+
+// Si pero con fecth era por que son archivos que nosotros ya sabiamos como estaban aqui son archivos que no sabemos como es que son entonces le pedios al usuario que ingrese un dato por lo que ese dato se coloca en un input
+
+
+// const archivo = document.getElementById('archivo')
+
+
+
+
+// Este es el que detecta cuando hay un cambio en un input
+
+// Yo al input le he pasado el archivo de info.txt
+
+// archivo.addEventListener('change', (e) => {
+
+//     // El files es un array y puede seleccionar multiples archivos, eso nomas si es que ponemos el atributo de multiple="" dentro de el input en HTML
+
+//     // Puesimos la funcion con el un ico archivo que esta entrando porque nomas podria ser un archivo
+
+//     leerArchivo(archivo.files[0])
+
+// })
+
+
+
+
+
+// Funcion que se le pasa de parametro el archivo introducido
+
+
+
+// const leerArchivo = ar => {
+
+//     // Creamos un FileReader
+//     const reader = new FileReader()
+
+
+//     // Leemos el archivo como texto
+//     reader.readAsText(ar);
+
+
+
+//     // Ya que cargue el archivo correctamente, va a ejecutarse el codigo
+
+//     reader.addEventListener('load', (e)=>{
+
+//         // Aqui dentro es donde ya se habra leido el texto y de esto ya ya viendo el currentTarget y el resultado podremos encontrar el texto que estaba dentro de ese archivo
+
+
+
+//         // De aqui si ponemos archivos json los podemos pasar en json tambien aplicandole el parse ya que esta como un texto normal
+
+//         console.log(JSON.parse(e.currentTarget.result))
+
+
+
+//         // Aqui nomas de juego lo meti en un parrafo para ver si salia xd y si salio
+
+//         setTimeout(() => {
+//             document.querySelector('.text').innerHTML = e.currentTarget.result
+//         }, 1500);
+//     })
+// }
+
+
+
+
+
+
+
+
+
+/* X) ¿COMO LEEMOS VARIOS ARCHIVOS DE TEXTO? */ 
+
+
+// Tenemos que tener un bucle
+
+
+// "use strict";
+
+// const archivo = document.getElementById('archivo');
+
+// archivo.addEventListener('change', (e) => {
+
+//     // Aqui pasamos el array de files completo no pasamos solo el pirmer archivo 
+
+//     leerArchivo(archivo.files)
+// })
+
+
+
+// const leerArchivo = ar => {
+    
+//     // La fileList que se devuelve si seria un objeto que es lo que devuelve esto de typeof
+
+//     console.log( typeof ar) 
+
+
+    
+//     // Aqui esta el bucle que va a ver dentro de cada archivo
+
+//     for (const key of ar) {
+//         const reader = new FileReader();
+//         reader.readAsText(key)
+//         reader.addEventListener('load', (e)=>{
+
+//             // Este codigo veria la primera letra del codigo y va a ver si es un JSON o si es un texto normal por lo que daria el resultado de forma diferente
+
+//             if(e.currentTarget.result.charAt(0) == "{"){
+//                 console.log(JSON.parse(e.currentTarget.result))
+//             }else{
+//                 console.log(e.currentTarget.result)
+//             }
+
+//         })
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
+/* X) READ FILE AS DATA URL - PARA IMAGENES, VIDEOS,ECT. */
+
+// "use strict";
+
+// const archivo = document.getElementById('archivo');
+
+// archivo.addEventListener('change', (e) => {
+
+//     // Aqui pasamos el array de files completo no pasamos solo el pirmer archivo 
+
+//     leerArchivo(archivo.files)
+// })
+
+
+
+// const leerArchivo = ar => {
+    
+
+//     console.log( typeof ar) 
+
+
+    
+
+//     for (const key of ar) {
+//         const reader = new FileReader();
+
+//         // Lo leemos como data url
+
+//         reader.readAsDataURL(key)
+
+
+//         reader.addEventListener('load', (e)=>{
+
+//             // Creamos la img con la url
+
+//             // Esto se deveria de hacer con un fragemnto de documento pero aqui esta hecho de forma rapida
+
+//             let newImg = `<img src='${e.currentTarget.result}' >`
+
+//             document.querySelector('.resultado').innerHTML += newImg
+//         })
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+/* EJEMPLO DE USO 1 (CARGAR GALERIA DINAMICAMENTE) */
+
+
+
+
+
+/* EJEMPLO DE USO 2 (COMBINAR FILEREADER CON DRAG & DROP) */
+
+
+
+
+
+/* EJEMPLO DE USO 3 (BARRA DE PROGRESO CON PROGRESS Y LOADEND) */
 
 
 

@@ -150,3 +150,31 @@ button:hover{
     background: #ddd;
     height: 200px;
 }
+
+
+
+
+
+
+/* SOBRE EL LECTOR DE ARCHIVOS */
+
+.resultado{
+    width: 500px;
+    height: 200px;
+    border: 2px solid #000;
+    margin: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.resultado img{
+    width: 150px;
+    height: 150px;
+}
+
+
+.text{
+    margin: 10px;
+}
