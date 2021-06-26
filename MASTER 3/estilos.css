@@ -158,7 +158,7 @@ button:hover{
 
 /* SOBRE EL LECTOR DE ARCHIVOS */
 
-.resultado{
+/* .resultado{
     width: 500px;
     height: 200px;
     border: 2px solid #000;
@@ -177,4 +177,45 @@ button:hover{
 
 .text{
     margin: 10px;
+} */
+
+
+
+
+
+
+/* EJEMPLO 1 GALERIA DINAMICA */
+
+
+img{
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.resultado{
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: 100px;
+    grid-gap: 6px;
+}
+
+/* Esto es para que el primero abarque mas que todos los demas */
+
+img:first-child{
+    grid-column: 1/3;
+    grid-row: 1 / 3;
+}
+
+
+/* Este dice que va a ir desde el 2 al 4 de forma horizontal y de vertical va a ir de el 3 al 5 la imagen numero 6  */
+
+img:nth-child(6){
+    grid-column: 2 / 4;
+    grid-row: 3/5;
+}
+
+
+img:nth-child(10){
+    grid-row: span 2;
 }

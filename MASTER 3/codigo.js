@@ -2147,6 +2147,48 @@
 
 /* EJEMPLO DE USO 1 (CARGAR GALERIA DINAMICAMENTE) */
 
+"use strict";
+
+const archivo = document.getElementById('archivo');
+
+archivo.addEventListener('change', (e) => {
+
+    leerArchivo(archivo.files)
+})
+
+
+
+const leerArchivo = ar => {
+    
+
+    console.log( typeof ar) 
+
+
+    
+
+    for (const key of ar) {
+        const reader = new FileReader();
+
+
+        reader.readAsDataURL(key)
+
+
+        reader.addEventListener('load', (e)=>{
+
+
+
+            let newImg = `<img src='${e.currentTarget.result}' >`
+
+            document.querySelector('.resultado').innerHTML += newImg
+        })
+    }
+}
+
+
+
+
+
+
 
 
 
