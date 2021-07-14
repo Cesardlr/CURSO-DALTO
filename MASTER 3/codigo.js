@@ -2035,7 +2035,7 @@
 
 
 
-/* X) ¿COMO LEEMOS VARIOS ARCHIVOS DE TEXTO? */ 
+/* X) ¿COMO LEEMOS VARIOS ARCHIVOS DE TEXTO? */
 
 
 // Tenemos que tener un bucle
@@ -2055,13 +2055,13 @@
 
 
 // const leerArchivo = ar => {
-    
+
 //     // La fileList que se devuelve si seria un objeto que es lo que devuelve esto de typeof
 
 //     console.log( typeof ar) 
 
 
-    
+
 //     // Aqui esta el bucle que va a ver dentro de cada archivo
 
 //     for (const key of ar) {
@@ -2106,12 +2106,12 @@
 
 
 // const leerArchivo = ar => {
-    
+
 
 //     console.log( typeof ar) 
 
 
-    
+
 
 //     for (const key of ar) {
 //         const reader = new FileReader();
@@ -2147,42 +2147,42 @@
 
 /* EJEMPLO DE USO 1 (CARGAR GALERIA DINAMICAMENTE) */
 
-"use strict";
+// "use strict";
 
-const archivo = document.getElementById('archivo');
+// const archivo = document.getElementById('archivo');
 
-archivo.addEventListener('change', (e) => {
+// archivo.addEventListener('change', (e) => {
 
-    leerArchivo(archivo.files)
-})
-
-
-
-const leerArchivo = ar => {
-    
-
-    console.log( typeof ar) 
-
-
-    
-
-    for (const key of ar) {
-        const reader = new FileReader();
-
-
-        reader.readAsDataURL(key)
-
-
-        reader.addEventListener('load', (e)=>{
+//     leerArchivo(archivo.files)
+// })
 
 
 
-            let newImg = `<img src='${e.currentTarget.result}' >`
+// const leerArchivo = ar => {
 
-            document.querySelector('.resultado').innerHTML += newImg
-        })
-    }
-}
+
+//     console.log( typeof ar) 
+
+
+
+
+//     for (const key of ar) {
+//         const reader = new FileReader();
+
+
+//         reader.readAsDataURL(key)
+
+
+//         reader.addEventListener('load', (e)=>{
+
+
+
+//             let newImg = `<img src='${e.currentTarget.result}' >`
+
+//             document.querySelector('.resultado').innerHTML += newImg
+//         })
+//     }
+// }
 
 
 
@@ -2195,11 +2195,202 @@ const leerArchivo = ar => {
 
 /* EJEMPLO DE USO 2 (COMBINAR FILEREADER CON DRAG & DROP) */
 
+// AÑADIMOS EFECTOS DE ARRASTRADO DE ARCHIVOS Y ESO, SE CAMBIARIA EL COLOR
+
+const zona = document.querySelector('.zona-arrastre')
+
+// Para cuando se pasa el archivo por enciam del div
+zona.addEventListener('dragover', e => {
+    e.preventDefault()
+    changeStyle(e.currentTarget, '#222')
+})
+
+
+// Para cuando se sale de el div de carga
+zona.addEventListener('dragleave', e => {
+    e.preventDefault()
+    changeStyle(e.currentTarget, '#888')
+})
+
+
+// Para cuando se suelta un elemento
+zona.addEventListener('drop', e => {
+
+    e.preventDefault()
+    changeStyle(e.currentTarget, '#888')
+
+    // Pasamos los archivos que se enviaron
+    cargarArchivo(e.dataTransfer.files)
+    // console.log(e.dataTransfer.files)
+
+    zona.style.border = '4px solid #888'
+
+
+})
 
 
 
 
-/* EJEMPLO DE USO 3 (BARRA DE PROGRESO CON PROGRESS Y LOADEND) */
+const changeStyle = (obj, color) => {
+    obj.style.color = color
+    obj.style.border = `4px dashed ${color}`
+}
+
+
+
+// // 1) CODIGO PARA CARGAR ARCHIVO
+
+// const cargarArchivo = ars => {
+//     // console.log(ars)
+
+//     // Bucle para leer archivos como es un objeto se tiene que usar for of
+
+
+//     for (const ar of ars) {
+
+//         const reader = new FileReader();
+//         reader.readAsText(ar)
+//         reader.addEventListener('load', e => {
+
+//             // Estariamos creando un div
+//             const resultado = document.createElement('div')
+
+//             // Le ponemos la clase resultado
+//             resultado.className = 'resultado'
+//             // El texto seria el texto de el documento que se paso
+//             resultado.textContent = e.currentTarget.result
+
+//             console.log(e)
+
+//             // Añadimos el div al body, aqui es importante que sea al body por que si es solo document.appendChild te salta un error
+//             document.body.appendChild(resultado)
+//         })
+//     }
+// }
+
+
+
+
+
+
+
+
+
+// 2) PARA PDOER HACER DRGA AND DROP CON EWL FILEREADER Y UNA IMAGEN
+
+
+// CODIGO PARA CARGAR ARCHIVO
+
+// const cargarArchivo = ars => {
+//     // console.log(ars)
+
+//     // Bucle para leer archivos como es un objeto se tiene que usar for of
+
+
+//     for (const ar of ars) {
+
+//         const reader = new FileReader();
+//         reader.readAsDataURL(ar)
+//         reader.addEventListener('load', e => {
+
+//             // Creamos una url para el archivo que tenemos
+//             let url = URL.createObjectURL(ar);
+
+//             // Creamos una imagen
+//             let img = document.createElement("IMG")
+
+//             // Le ponemos el src que sea la url que creamos
+//             img.setAttribute('src', url)
+
+//             // Metemos la imagen en el div de resultado
+//             document.querySelector('.resultado').appendChild(img)
+//         })
+//     }
+// }
+
+
+
+
+
+
+
+
+
+// 3) PARA PODER CARGAR UN VIDEO
+
+const cargarArchivo = ars => {
+    // console.log(ars)
+    /* EJEMPLO DE USO 3 (BARRA DE PROGRESO CON PROGRESS Y LOADEND) */
+
+    // Bucle para leer archivos como es un objeto se tiene que usar for of
+
+
+    for (const ar of ars) {
+
+        const reader = new FileReader();
+
+        // Creamos un array que al convertirlo a blob no dara problema
+        reader.readAsArrayBuffer(ar)
+
+        reader.addEventListener('progress', e=>{
+
+            // Esto te dice cuanto pesa el archivo
+            // console.log(ar.size)
+
+            // Esto te dice cuanto lleva cargado el aqrchivo en el peso del video
+            // console.log(e.loaded) 
+
+            let carga = Math.round( e.loaded / ar.size  * 100)
+
+            zona.textContent = `${carga}%`
+
+            // Esto es para cuando cargue la barra de carga
+
+            // Cambiar padding
+            document.querySelector('.barra-de-carga').style.padding = '75px 20px'
+
+            // Cambiar width
+            document.querySelector('.barra-de-carga').style.width = `${carga/3}%`
+
+        })
+
+        // Para cuando deje de cargar el archivo esto se ejecutara
+        reader.addEventListener('loadend', e=>{
+            changeStyle(zona, '#4f9')
+            zona.style.border = '4px solid #4f9'
+            document.querySelector('.barra-de-carga').style.background = '#4f9'
+        })
+
+        reader.addEventListener('load', e => {
+
+            // Antes de leer la Url crearemos esto, que es el url del video, este de blob tiene 2 parametros, uno es el array y el otro es el de options, en el array creamos un array de otro tipo que es el Uint8Array que lo crearemos con el resultado que de el evento del reader, y las options pusimos que seria un video mp4
+
+            // Se pone entre [] por que es tipo el spread operator que lo divide como entre comas ya todo el array
+
+            let video = new Blob([new Uint8Array(e.currentTarget.result)], { type: 'vide/mp4' })
+
+            // Creamos una url desde el video
+            let url = URL.createObjectURL(video);
+
+            // Creamos un video
+            let img = document.createElement("VIDEO")
+
+            // Le ponemos el src que sea la url que creamos
+            img.setAttribute('src', url)
+
+            // Metemos la imagen en el div de resultado
+            document.querySelector('.resultado').appendChild(img)
+
+
+            // Esto se le pone para que se reproduzca el video
+            img.play()
+        })
+    }
+}
+
+
+
+
 
 
 

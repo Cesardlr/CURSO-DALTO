@@ -1,7 +1,7 @@
-body{
+/* body{
     color:#222;
     font-family: sans-serif;
-}
+} */
 
 .texto{
     margin:20px;
@@ -29,10 +29,10 @@ body{
 
 /* DEL LOCAL STORAGE */
 
-body{
+/* body{
     padding:0;
     margin:0;
-}
+} */
 
 .modal-overlay {
     background: rgba(0,0,0,0.7);
@@ -184,10 +184,13 @@ button:hover{
 
 
 
+
+
+
 /* EJEMPLO 1 GALERIA DINAMICA */
 
 
-img{
+/* img{
     width:100%;
     height: 100%;
     object-fit: cover;
@@ -195,27 +198,93 @@ img{
 
 .resultado{
     display:grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-auto-rows: 100px;
     grid-gap: 6px;
-}
+    margin: 10px;
+} */
 
 /* Esto es para que el primero abarque mas que todos los demas */
 
-img:first-child{
+/* img:first-child{
     grid-column: 1/3;
     grid-row: 1 / 3;
-}
+} */
 
 
 /* Este dice que va a ir desde el 2 al 4 de forma horizontal y de vertical va a ir de el 3 al 5 la imagen numero 6  */
 
-img:nth-child(6){
+/* img:nth-child(6){
     grid-column: 2 / 4;
     grid-row: 3/5;
-}
+    }
 
 
 img:nth-child(10){
     grid-row: span 2;
+} */
+
+
+
+
+
+
+
+/* EJEMPLO DRAG & DROP CON FILEREADER */
+
+body{
+    color: #222;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
 }
+
+.zona-arrastre, .barra-de-carga{ 
+    padding: 60px 20px;
+    border: 4px dashed #888;
+    max-width: 500px;
+    color: #888;
+    margin: auto;
+    margin-top: 30px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    font-size: 20px;
+}
+
+.barra-de-carga{
+    position: absolute;
+    width: 0%;
+    left: 0;
+    right: 0;
+    margin-top: 0;
+    padding: 0;
+    z-index: 0;
+    border: none;
+    background: #def;
+    transition: width 0.3s, background 0.5s;
+    /* display: none; */
+}
+
+.resultado{
+    font-size: 25px;
+    color: #fff;
+    margin: 20px;
+    text-align: center;
+    /* background: rgb(93, 148, 173); */
+    /* display: inline-block; */
+    /* width: 500px; */
+}
+
+.resultado img{
+    width:200px;
+    height: 200px;
+}
+
+.resultado video{
+    width:500px;
+    height: 500px;
+}
+
+
+
